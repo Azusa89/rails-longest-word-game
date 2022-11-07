@@ -1,0 +1,22 @@
+<main>
+  <div class="game">
+  <div class="game_head">
+    <h1>Longest Word game!</h1>
+    <p>Whats the longest word you can find?</p>
+  </div>
+    <div class="grid">
+      <% @ran_grid.each do|i| %>
+      <div class="letter"><%=i %></div>
+      <%end %>
+    </div>
+    <div class="center-txt">
+    <form action="/score" method="post" data-turbo="false">
+        <input class=input type="text" name="attempt" placeholder="Whats the biggest word?">
+        <input class=input type="submit">
+        <%= hidden_field_tag :grid, @ran_grid %>
+        <%= hidden_field_tag :time_start, Time.now %>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      </div>
+    </form>
+  </div>
+</main>

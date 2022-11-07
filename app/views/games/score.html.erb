@@ -1,0 +1,27 @@
+<main>
+  <div class="game">
+
+<h1>Score</h1>
+
+    <div class="grid">
+      <% params[:grid].split.each do|i| %>
+      <div class="letter"><%=i %></div>
+      <%end %>
+    </div>
+  <div class="center-txt">
+    <h2>Your answer</h2>
+    <div class="grid">
+      <% params[:attempt].chars do|i| %>
+      <div class="letter"><%=i %></div>
+      <%end %>
+    </div>
+  </div>
+  <p class = message><%= @result[:message] %></p>
+  <div class = "center-txt">
+    <h2>Score</h2>
+    <p><%= @result[:score] %></p>
+  </div>
+  <%= link_to "Try again!", "/new" %>
+
+  </div>
+</main>
